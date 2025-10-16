@@ -3,6 +3,9 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# Manim generated media files
+my_agent/media/
+
 # C extensions
 *.so
 
