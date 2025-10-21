@@ -4,6 +4,7 @@ from google.adk.agents import LlmAgent
 from google.adk.tools.mcp_tool.mcp_toolset import MCPToolset
 from google.adk.tools.mcp_tool.mcp_session_manager import StdioConnectionParams
 from mcp import StdioServerParameters
+from google.adk.models.lite_llm import LiteLlm
 
 # Get absolute path to the manim_server.py script
 PATH_TO_YOUR_MCP_SERVER_SCRIPT = os.path.join(
@@ -24,7 +25,7 @@ MCP_TIMEOUT = 1500.0
 from . import prompt
 from . import google_prompt
 root_agent = LlmAgent(
-    model='gemini-2.0-flash',
+    model=LiteLlm(model="bedrock/anthropic.claude-3-5-sonnet-20240620-v1:0"),
     name='manim_video_generator_agent',
     instruction=google_prompt.GOOGLE_THEMED_MANIM_VIDEO_GENERATOR,
     tools=[
